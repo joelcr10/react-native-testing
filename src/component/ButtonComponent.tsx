@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 
 
 const ButtonComponent = () =>{
+    const [count, setCount] = useState<number>(0);
+
+    const onPress = () =>{
+        setCount(prevCount => prevCount+1);
+        console.log("clicked: ",count); 
+    }
+
     return(
         <View>
-            <TouchableOpacity style={styles.button}>
-                 <Text style={{color: 'white'}}>Press Here</Text>
+            <TouchableOpacity style={styles.button} onPress={onPress}>
+                <Text style={{color: 'white'}}>Press Here</Text>
             </TouchableOpacity>
         </View>
     )
